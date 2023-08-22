@@ -8,7 +8,7 @@ author:
 institute:
 - ENSAI & CREST$^\dagger$, valentin.patilea@ensai.fr
 - McMaster University$^\ddagger$, racinej@mcmaster.ca
-date: 08/21/2023
+date: 08/27/2023
 date-format: full
 editor: source
 bibliography: slides.bib
@@ -569,6 +569,8 @@ for (k in 1:35) {
 - "Common design" (will come back to this)
 :::
 
+<!--
+
 ## Modelling Functional Data
 
 -   Why not use classical linear regression to model each curve?
@@ -621,6 +623,7 @@ for (k in 1:35) {
 - Replication can be further exploited (i.e. beyond existing uses)
 :::
 
+
 ## Highlights and Related Work
 
 -   We contribute to the literature by providing i) an MSE-optimal, data-driven, iterative plug-in estimator of local regularity and ii) a computationally attractive, recursive, online updating method
@@ -632,6 +635,8 @@ for (k in 1:35) {
     -   @gini_nickl:2010, @cai_low_ma:2014, and @ray:2017, who consider the construction of confidence or credible sets for a single curve of unknown regularity (the latter in a Bayesian framework)
 
     -   @golovkine_klutchnikoff_patilea:2022, who propose a non-smoothing estimator for local regularity of the trajectories of a stochastic process using order statistics (they also adopt a smoothing component, but this relies on an unknown constant $K_0$)
+    
+-->
 
 # Functional Data Setting
 
@@ -660,6 +665,8 @@ for (k in 1:35) {
 - https://en.wikipedia.org/wiki/Stochastic_process
 :::
 
+<!--
+
 ## Discrete Sample Points
 
 -   Here, $M_i$ (number of discrete sample points for the $i$th curve) is an integer which can be non-random and common to several $X^{(i)}$, or an independent draw from some positive integer random variable drawn independently of $X$
@@ -674,6 +681,8 @@ for (k in 1:35) {
 - For the theory, we have to let the number of curves $N$ and the expectation of $M_i$ increase, so the data is more like a triangular array (at least for the theory)
 :::
 
+-->
+
 ## Measurement Errors and Design
 
 -   The $\varepsilon^{(i)}_m$ are measurement errors, and we allow \begin{equation*}
@@ -685,6 +694,8 @@ for (k in 1:35) {
 -   Our approach applies to both *independent design* and *common design* cases
 
 -   Relative to the number of curves, $N$, the number of points per curve, $M_i$, may be small ("sparse") or large ("dense")
+
+<!--
 
 ## Estimation Grid, Batch/Online
 
@@ -701,6 +712,8 @@ for (k in 1:35) {
 -   We are also concerned with computational limitations frequently encountered in this framework (we propose a recursive solution via stochastic approximation algorithms)
 
 -   We will be interested in updating estimates as new functional data arises ("online") as well as performing estimation on an existing set of curves ("batch")
+
+-->
 
 ## Replication
 
@@ -828,6 +841,8 @@ Q *Can you provide a definition of “irregular function”?*
 
 -   The smoother $\widetilde X^{(i)}(t)$ depends on a bandwidth $h_t$ that, post-iteration, adapts to the local regularity of the underlying process
 
+<!--
+
 ##  Nonparametric Smoother
 
 -   To construct $\widehat H_t$ and $\widehat L_t$ on the previous slide, we use a generic kernel-based smoother on *de-meaned* $Y^{(i)}_m$ given by \begin{equation*}
@@ -854,6 +869,8 @@ Q *Can you provide a definition of “irregular function”?*
     \end{equation*}
 
 -   When $w^{(i)}(t;h) = 0$ we *discard* the $i$th curve *vertically* as we lack information local to $t$ (i.e., if all $W_{m}^{(i)}(t;h)=0$, where $0/0\coloneqq0$)
+
+-->
 
 # Assumptions
 

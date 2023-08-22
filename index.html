@@ -14,7 +14,7 @@
 
   <meta name="author" content="Valentin Patilea^\dagger">
   <meta name="author" content="Jeffrey S. Racine^\ddagger">
-  <title>quarto-input286a707b</title>
+  <title>quarto-inpute384cba1</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -379,7 +379,7 @@ Jeffrey S. Racine<span class="math inline">\(^\ddagger\)</span>
     </div>
 </div>
 
-  <p class="date">Monday, August 21, 2023</p>
+  <p class="date">Sunday, August 27, 2023</p>
 </section>
 <section id="slide-pro-tips" class="title-slide slide level1 center">
 <h1>Slide Pro-Tips</h1>
@@ -588,92 +588,75 @@ Jeffrey S. Racine<span class="math inline">\(^\ddagger\)</span>
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-</section>
-<section id="modelling-functional-data" class="slide level2 center">
-<h2>Modelling Functional Data</h2>
-<ul>
-<li class="fragment"><p>Why not use classical linear regression to model each curve?</p>
-<ul>
-<li class="fragment">it would be difficult to justify given the nature of the data</li>
-</ul></li>
-<li class="fragment"><p>Why not use existing nonparametric methods to model each curve?</p>
-<ul>
-<li class="fragment">it would be hard to justify smoothness assumptions, for one</li>
-</ul></li>
-<li class="fragment"><p>Why not use classical time series or longitudinal/panel analysis</p>
-<ul>
-<li class="fragment"><p>the observed points may not be equally spaced</p></li>
-<li class="fragment"><p>the various curves may not be sampled at the same time points</p></li>
-<li class="fragment"><p>the observed points may not be stationary</p></li>
-</ul></li>
-<li class="fragment"><p><em>Ideally</em>, one would keep the observation unit as collected, and model data as realizations in a suitable space of objects (i.e., space of curves)</p></li>
-</ul>
-<aside class="notes">
-<ul>
-<li><p>Modern data often come in the form of curves (wearables, health measurements)</p></li>
-<li><p>Point out we need a new framework</p></li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section></section>
-<section>
-<section id="scope-highlights-and-related-work" class="title-slide slide level1 center">
-<h1>Scope, Highlights, and Related Work</h1>
 
-</section>
-<section id="project-scope" class="slide level2 center">
-<h2>Project Scope</h2>
-<ul>
-<li class="fragment"><p>We drill down on <em>unknown regularity of unknown functions</em></p></li>
-<li class="fragment"><p>We exploit a key feature of FDA, namely, <em>replication</em></p></li>
-<li class="fragment"><p>We use data-driven local nonparametric kernel methods</p></li>
-<li class="fragment"><p>Our method adapts, <em>pointwise</em>, to</p>
-<ul>
-<li class="fragment"><p>the <em>local regularity</em> of the underlying process (i.e., the Hölder exponent <span class="math inline">\(H_t\)</span> defined shortly and to <em>measurement noise</em> (i.e., we are able to separate <em>noise</em> from <em>regularity</em> thanks to <em>replication</em>)</p></li>
-<li class="fragment"><p>the <em>purpose(s)</em> of estimation (i.e., <span class="math inline">\(\mu(t)\)</span> versus <span class="math inline">\(\Gamma(s,t)\)</span> defined shortly)</p></li>
-</ul></li>
-<li class="fragment"><p>Our method is computationally tractable:</p>
-<ul>
-<li class="fragment">we have processed millions of curves, each containing hundreds of sample points, on a laptop in real-time as new online data arrives</li>
-</ul></li>
-</ul>
-<aside class="notes">
-<ul>
-<li><p>If I were to coin a slogan for this talk, it would be “think vertically!”</p></li>
-<li><p>Replication can be further exploited (i.e.&nbsp;beyond existing uses)</p></li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="highlights-and-related-work" class="slide level2 center">
-<h2>Highlights and Related Work</h2>
-<ul>
-<li class="fragment"><p>We contribute to the literature by providing i) an MSE-optimal, data-driven, iterative plug-in estimator of local regularity and ii) a computationally attractive, recursive, online updating method</p></li>
-<li class="fragment"><p>Related work includes</p>
-<ul>
-<li class="fragment"><p><span class="citation" data-cites="gloter_hoffmann:2007">Gloter and Hoffmann (<a href="#/references-scrollable" role="doc-biblioref" onclick="">2007</a>)</span>, who consider noisy measurements of <em>one</em> sample path from a scaled fractional Brownian motion (fBm) with unknown (<em>scalar</em>, i.e., <em>constant</em>) Hurst parameter and unknown scale with measurements on an equidistant grid and heteroscedastic noise</p></li>
-<li class="fragment"><p><span class="citation" data-cites="gini_nickl:2010">Giné and Nickl (<a href="#/references-scrollable" role="doc-biblioref" onclick="">2010</a>)</span>, <span class="citation" data-cites="cai_low_ma:2014">Cai, Low, and Ma (<a href="#/references-scrollable" role="doc-biblioref" onclick="">2014</a>)</span>, and <span class="citation" data-cites="ray:2017">Ray (<a href="#/references-scrollable" role="doc-biblioref" onclick="">2017</a>)</span>, who consider the construction of confidence or credible sets for a single curve of unknown regularity (the latter in a Bayesian framework)</p></li>
-<li class="fragment"><p><span class="citation" data-cites="golovkine_klutchnikoff_patilea:2022">Golovkine, Klutchnikoff, and Patilea (<a href="#/references-scrollable" role="doc-biblioref" onclick="">2022</a>)</span>, who propose a non-smoothing estimator for local regularity of the trajectories of a stochastic process using order statistics (they also adopt a smoothing component, but this relies on an unknown constant <span class="math inline">\(K_0\)</span>)</p></li>
-</ul></li>
-</ul>
+<!--
+
+## Modelling Functional Data
+
+-   Why not use classical linear regression to model each curve?
+
+    - it would be difficult to justify given the nature of the data
+
+-   Why not use existing nonparametric methods to model each curve?
+
+    - it would be hard to justify smoothness assumptions, for one
+
+-   Why not use classical time series or longitudinal/panel analysis
+
+    - the observed points may not be equally spaced
+
+    - the various curves may not be sampled at the same time points
+
+    - the observed points may not be stationary
+
+-   *Ideally*, one would keep the observation unit as collected, and model data as realizations in a suitable space of objects (i.e., space of curves)
+
+::: {.notes}
+- Modern data often come in the form of curves (wearables, health measurements)
+
+- Point out we need a new framework
+:::
+
+# Scope, Highlights, and Related Work
+
+## Project Scope
+
+-   We drill down on *unknown regularity of unknown functions*
+
+-   We exploit a key feature of FDA, namely, *replication*
+
+-   We use data-driven local nonparametric kernel methods
+
+-   Our method adapts, *pointwise*, to
+
+    -   the *local regularity* of the underlying process (i.e., the Hölder exponent $H_t$ defined shortly and to *measurement noise* (i.e., we are able to separate *noise* from *regularity* thanks to *replication*)
+
+    -   the *purpose(s)* of estimation (i.e., $\mu(t)$ versus $\Gamma(s,t)$ defined shortly)
+
+- Our method is computationally tractable:
+
+    - we have processed millions of curves, each containing hundreds of sample points, on a laptop in real-time as new online data arrives
+    
+::: {.notes}
+- If I were to coin a slogan for this talk, it would be "think vertically!"
+
+- Replication can be further exploited (i.e. beyond existing uses)
+:::
+
+
+## Highlights and Related Work
+
+-   We contribute to the literature by providing i) an MSE-optimal, data-driven, iterative plug-in estimator of local regularity and ii) a computationally attractive, recursive, online updating method
+
+-   Related work includes
+
+    -   @gloter_hoffmann:2007, who consider noisy measurements of *one* sample path from a scaled fractional Brownian motion (fBm) with unknown (*scalar*, i.e., *constant*) Hurst parameter and unknown scale with measurements on an equidistant grid and heteroscedastic noise
+
+    -   @gini_nickl:2010, @cai_low_ma:2014, and @ray:2017, who consider the construction of confidence or credible sets for a single curve of unknown regularity (the latter in a Bayesian framework)
+
+    -   @golovkine_klutchnikoff_patilea:2022, who propose a non-smoothing estimator for local regularity of the trajectories of a stochastic process using order statistics (they also adopt a smoothing component, but this relies on an unknown constant $K_0$)
+    
+-->
 </section></section>
 <section>
 <section id="functional-data-setting" class="title-slide slide level1 center">
@@ -711,30 +694,23 @@ Y^{(i)}_m = X^{(i)}(T^{(i)}_m) + \varepsilon^{(i)}_m,
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-</section>
-<section id="discrete-sample-points" class="slide level2 center">
-<h2>Discrete Sample Points</h2>
-<ul>
-<li class="fragment"><p>Here, <span class="math inline">\(M_i\)</span> (number of discrete sample points for the <span class="math inline">\(i\)</span>th curve) is an integer which can be non-random and common to several <span class="math inline">\(X^{(i)}\)</span>, or an independent draw from some positive integer random variable drawn independently of <span class="math inline">\(X\)</span></p></li>
-<li class="fragment"><p>The <span class="math inline">\(T^{(i)}_m\)</span> are the measurement times for <span class="math inline">\(X^{(i)}\)</span>, which can be non-random, or be randomly drawn from some distribution, independently of <span class="math inline">\(X\)</span> and the <span class="math inline">\(M_i\)</span></p></li>
-<li class="fragment"><p>The case where <span class="math inline">\(T^{(i)}_m\)</span> are the same for several <span class="math inline">\(X^{(i)}\)</span>, and implicitly the <span class="math inline">\(M_i\)</span> are the same too, is the so-called “common design” case</p></li>
-<li class="fragment"><p>The case where the <span class="math inline">\(T^{(i)}_m\)</span> are random is the so-called “independent design” case (our main focus lies here)</p></li>
-</ul>
-<aside class="notes">
-<ul>
-<li>For the theory, we have to let the number of curves <span class="math inline">\(N\)</span> and the expectation of <span class="math inline">\(M_i\)</span> increase, so the data is more like a triangular array (at least for the theory)</li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
+<!--
+
+## Discrete Sample Points
+
+-   Here, $M_i$ (number of discrete sample points for the $i$th curve) is an integer which can be non-random and common to several $X^{(i)}$, or an independent draw from some positive integer random variable drawn independently of $X$
+
+-   The $T^{(i)}_m$ are the measurement times for $X^{(i)}$, which can be non-random, or be randomly drawn from some distribution, independently of $X$ and the $M_i$
+
+-   The case where $T^{(i)}_m$ are the same for several $X^{(i)}$, and implicitly the $M_i$ are the same too, is the so-called "common design" case
+
+-   The case where the $T^{(i)}_m$ are random is the so-called "independent design" case (our main focus lies here)
+
+::: {.notes}
+- For the theory, we have to let the number of curves $N$ and the expectation of $M_i$ increase, so the data is more like a triangular array (at least for the theory)
+:::
+
+-->
 </section>
 <section id="measurement-errors-and-design" class="slide level2 center">
 <h2>Measurement Errors and Design</h2>
@@ -746,20 +722,25 @@ Y^{(i)}_m = X^{(i)}(T^{(i)}_m) + \varepsilon^{(i)}_m,
 <li class="fragment"><p>Our approach applies to both <em>independent design</em> and <em>common design</em> cases</p></li>
 <li class="fragment"><p>Relative to the number of curves, <span class="math inline">\(N\)</span>, the number of points per curve, <span class="math inline">\(M_i\)</span>, may be small (“sparse”) or large (“dense”)</p></li>
 </ul>
-</section>
-<section id="estimation-grid-batchonline" class="slide level2 center">
-<h2>Estimation Grid, Batch/Online</h2>
-<ul>
-<li class="fragment"><p>Let <span class="math inline">\(\mathcal T_0\subset [0,1]\)</span> be a set of points of interest</p></li>
-<li class="fragment"><p>Typically, <span class="math inline">\(\mathcal T_0\)</span> is a refined grid of equidistant points</p></li>
-<li class="fragment"><p>We wish to estimate the following functions:</p>
-<ul>
-<li class="fragment"><p><span class="math inline">\(\mu(\cdot)\)</span>, <span class="math inline">\(\sigma(\cdot)\)</span>, <span class="math inline">\(f_T(\cdot)\)</span> on <span class="math inline">\(\mathcal T_0\)</span></p></li>
-<li class="fragment"><p><span class="math inline">\(\Gamma(\cdot,\cdot)\)</span> on <span class="math inline">\(\mathcal T_0 \times \mathcal T_0\)</span></p></li>
-</ul></li>
-<li class="fragment"><p>We are also concerned with computational limitations frequently encountered in this framework (we propose a recursive solution via stochastic approximation algorithms)</p></li>
-<li class="fragment"><p>We will be interested in updating estimates as new functional data arises (“online”) as well as performing estimation on an existing set of curves (“batch”)</p></li>
-</ul>
+<!--
+
+## Estimation Grid, Batch/Online
+
+-   Let $\mathcal T_0\subset [0,1]$ be a set of points of interest
+
+-   Typically, $\mathcal T_0$ is a refined grid of equidistant points
+
+-   We wish to estimate the following functions:
+
+    -   $\mu(\cdot)$, $\sigma(\cdot)$, $f_T(\cdot)$ on $\mathcal T_0$
+
+    -   $\Gamma(\cdot,\cdot)$ on $\mathcal T_0 \times \mathcal T_0$
+
+-   We are also concerned with computational limitations frequently encountered in this framework (we propose a recursive solution via stochastic approximation algorithms)
+
+-   We will be interested in updating estimates as new functional data arises ("online") as well as performing estimation on an existing set of curves ("batch")
+
+-->
 </section>
 <section id="replication" class="slide level2 center">
 <h2>Replication</h2>
@@ -903,31 +884,36 @@ L_t \approx \frac{\sqrt{\theta(t_1,t_3)}}{|t_1-t_3|^{H_t} } \quad \text{if }  |t
 \end{equation*}\]</span></p></li>
 <li class="fragment"><p>The smoother <span class="math inline">\(\widetilde X^{(i)}(t)\)</span> depends on a bandwidth <span class="math inline">\(h_t\)</span> that, post-iteration, adapts to the local regularity of the underlying process</p></li>
 </ul>
-</section>
-<section id="nonparametric-smoother" class="slide level2 center">
-<h2>Nonparametric Smoother</h2>
-<ul>
-<li class="fragment"><p>To construct <span class="math inline">\(\widehat H_t\)</span> and <span class="math inline">\(\widehat L_t\)</span> on the previous slide, we use a generic kernel-based smoother on <em>de-meaned</em> <span class="math inline">\(Y^{(i)}_m\)</span> given by <span class="math display">\[\begin{equation*}
-\widetilde X^{(i)}(t) = \sum_{m=1}^{M_i} W_{m}^{(i)}(t;h_t) \left(Y^{(i)}_m -\widetilde\mu(T^{(i)}_m)\right),\, \sum_{m=1}^{M_i}W_{m}^{(i)}(t;h_t) =1
-\end{equation*}\]</span></p></li>
-<li class="fragment"><p>The weights <span class="math inline">\(W_{m}^{(i)}(t;h_t)\)</span> are functions of the elements in <span class="math inline">\(\mathcal T_{obs}^{(i)} = \left\{ T_1^{(i)},\ldots, T_{M_i}^{(i)}\right\}\)</span>, and depend on a bandwidth <span class="math inline">\(h_t\)</span> which can vary with <span class="math inline">\(t\)</span></p></li>
-<li class="fragment"><p>The main case we have in mind is local polynomial smoothing</p></li>
-<li class="fragment"><p>In the case of non-differentiable functions (our main focus lies here), we consider the local constant NW estimator <span class="citation" data-cites="nadaraya:1965 watson:1964">(<a href="#/references-scrollable" role="doc-biblioref" onclick="">Nadaraya 1965</a>; <a href="#/references-scrollable" role="doc-biblioref" onclick="">Watson 1964</a>)</span></p></li>
-</ul>
-</section>
-<section id="nonparametric-smoother-1" class="slide level2 center">
-<h2>Nonparametric Smoother</h2>
-<ul>
-<li class="fragment"><p>The weights of the NW estimator of <span class="math inline">\(X^{(i)}(t)\)</span> are <span class="math display">\[\begin{equation*}
-W_{m}^{(i)}(t;h_t)  = K\left( \frac{T^{(i)}_m-t}{h_t} \right)\left[\sum_{m'=1}^{M_i} K\left( \frac{T^{(i)}_{m'}-t}{h_t} \right)\right]^{-1},
-\quad 1\leq m \leq M_i
-\end{equation*}\]</span></p></li>
-<li class="fragment"><p><span class="math inline">\(K(u)\)</span> is a symmetric, non-negative, bounded kernel with support in <span class="math inline">\([-1,1]\)</span> <span class="citation" data-cites="epanechnikov:1969">(e.g., <a href="#/references-scrollable" role="doc-biblioref" onclick="">Epanechnikov 1969</a>)</span></p></li>
-<li class="fragment"><p>For estimating <span class="math inline">\(\mu(t)\)</span> and <span class="math inline">\(\Gamma(s,t)\)</span> we might entertain an indicator associated with the weights <span class="math inline">\(W_{m}^{(i)}(t;h)\)</span>, that is <span class="math display">\[\begin{equation*}
-w^{(i)}(t;h) = 1 \quad \text{if} \quad \sum_{i=1}^{M_i} \mathbf 1 \left\{\left|T^{(i)}_m-t\right|\leq h\right\} &gt;1, \quad \text{and } 0 \text{ otherwise}
-\end{equation*}\]</span></p></li>
-<li class="fragment"><p>When <span class="math inline">\(w^{(i)}(t;h) = 0\)</span> we <em>discard</em> the <span class="math inline">\(i\)</span>th curve <em>vertically</em> as we lack information local to <span class="math inline">\(t\)</span> (i.e., if all <span class="math inline">\(W_{m}^{(i)}(t;h)=0\)</span>, where <span class="math inline">\(0/0\coloneqq0\)</span>)</p></li>
-</ul>
+<!--
+
+##  Nonparametric Smoother
+
+-   To construct $\widehat H_t$ and $\widehat L_t$ on the previous slide, we use a generic kernel-based smoother on *de-meaned* $Y^{(i)}_m$ given by \begin{equation*}
+    \widetilde X^{(i)}(t) = \sum_{m=1}^{M_i} W_{m}^{(i)}(t;h_t) \left(Y^{(i)}_m -\widetilde\mu(T^{(i)}_m)\right),\, \sum_{m=1}^{M_i}W_{m}^{(i)}(t;h_t) =1
+    \end{equation*}
+
+-   The weights $W_{m}^{(i)}(t;h_t)$ are functions of the elements in $\mathcal T_{obs}^{(i)} = \left\{ T_1^{(i)},\ldots, T_{M_i}^{(i)}\right\}$, and depend on a bandwidth $h_t$ which can vary with $t$
+
+-   The main case we have in mind is local polynomial smoothing
+
+-   In the case of non-differentiable functions (our main focus lies here), we consider the local constant NW estimator [@nadaraya:1965; @watson:1964]
+
+##  Nonparametric Smoother
+
+-   The weights of the NW estimator of $X^{(i)}(t)$ are \begin{equation*}
+    W_{m}^{(i)}(t;h_t)  = K\left( \frac{T^{(i)}_m-t}{h_t} \right)\left[\sum_{m'=1}^{M_i} K\left( \frac{T^{(i)}_{m'}-t}{h_t} \right)\right]^{-1},
+    \quad 1\leq m \leq M_i
+    \end{equation*}
+
+-   $K(u)$ is a symmetric, non-negative, bounded kernel with support in $[-1,1]$ [e.g., @epanechnikov:1969]
+
+-   For estimating $\mu(t)$ and $\Gamma(s,t)$ we might entertain an indicator associated with the weights $W_{m}^{(i)}(t;h)$, that is \begin{equation*}
+    w^{(i)}(t;h) = 1 \quad \text{if} \quad \sum_{i=1}^{M_i} \mathbf 1 \left\{\left|T^{(i)}_m-t\right|\leq h\right\} >1, \quad \text{and } 0 \text{ otherwise}
+    \end{equation*}
+
+-   When $w^{(i)}(t;h) = 0$ we *discard* the $i$th curve *vertically* as we lack information local to $t$ (i.e., if all $W_{m}^{(i)}(t;h)=0$, where $0/0\coloneqq0$)
+
+-->
 </section></section>
 <section>
 <section id="assumptions" class="title-slide slide level1 center">
@@ -1470,20 +1456,8 @@ Cai, T. Tony, and Ming Yuan. 2011. <span>“<span class="nocase">Optimal estimat
 <div id="ref-chan_wood:1998" class="csl-entry" role="listitem">
 Chan, Grace, and Andrew T. A. Wood. 1998. <span>“Simulation of Multifractional Brownian Motion.”</span> In <em>COMPSTAT</em>, edited by Roger Payne and Peter Green, 233–38. Heidelberg: Physica-Verlag HD.
 </div>
-<div id="ref-epanechnikov:1969" class="csl-entry" role="listitem">
-Epanechnikov, V. A. 1969. <span>“Nonparametric Estimation of a Multidimensional Probability Density.”</span> <em>Theory of Applied Probability</em> 14: 153–58.
-</div>
 <div id="ref-fda.usc" class="csl-entry" role="listitem">
 Febrero-Bande, Manuel, and Manuel Oviedo de la Fuente. 2012. <span>“Statistical Computing in Functional Data Analysis: The <span>R</span> Package <span class="nocase">fda.usc</span>.”</span> <em>Journal of Statistical Software</em> 51 (4): 1–28. <a href="https://www.jstatsoft.org/v51/i04/">https://www.jstatsoft.org/v51/i04/</a>.
-</div>
-<div id="ref-gini_nickl:2010" class="csl-entry" role="listitem">
-Giné, Evarist, and Richard Nickl. 2010. <span>“<span class="nocase">Confidence bands in density estimation</span>.”</span> <em>The Annals of Statistics</em> 38 (2): 1122–70. <a href="https://doi.org/10.1214/09-AOS738">https://doi.org/10.1214/09-AOS738</a>.
-</div>
-<div id="ref-gloter_hoffmann:2007" class="csl-entry" role="listitem">
-Gloter, Arnaud, and Marc Hoffmann. 2007. <span>“<span class="nocase">Estimation of the Hurst parameter from discrete noisy data</span>.”</span> <em>The Annals of Statistics</em> 35 (5): 1947–74. <a href="https://doi.org/10.1214/009053607000000316">https://doi.org/10.1214/009053607000000316</a>.
-</div>
-<div id="ref-golovkine_klutchnikoff_patilea:2022" class="csl-entry" role="listitem">
-Golovkine, Steven, Nicolas Klutchnikoff, and Valentin Patilea. 2022. <span>“<span class="nocase">Learning the smoothness of noisy curves with application to online curve estimation</span>.”</span> <em>Electronic Journal of Statistics</em> 16 (1): 1485–1560. <a href="https://doi.org/10.1214/22-EJS1997">https://doi.org/10.1214/22-EJS1997</a>.
 </div>
 <div id="ref-hall_horowitz:2007" class="csl-entry" role="listitem">
 Hall, Peter, and Joel L. Horowitz. 2007. <span>“Methodology and Convergence Rates for Functional Linear Regression.”</span> <em>The Annals of Statistics</em> 35 (1): 70–91.
@@ -1506,9 +1480,6 @@ Lepski, O. V., E. Mammen, and V. G. Spokoiny. 1997. <span>“<span class="nocase
 <div id="ref-levitin_et_al:2007" class="csl-entry" role="listitem">
 Levitin, Daniel J., Regina L. Nuzzo, Bradley W. Vines, and James O. Ramsay. 2007. <span>“Introduction to Functional Data Analysis.”</span> <em>Canadian Psychology</em> 48: 135–55.
 </div>
-<div id="ref-nadaraya:1965" class="csl-entry" role="listitem">
-Nadaraya, E. A. 1965. <span>“On Nonparametric Estimates of Density Functions and Regression Curves.”</span> <em>Theory of Applied Probability</em> 10: 186–90.
-</div>
 <div id="ref-padilla_segarra_et_al:2020" class="csl-entry" role="listitem">
 Padilla-Segarra, Adrián, Mabel González-Villacorte, Isidro R. Amaro, and Saba Infante. 2020. <span>“Brief Review of Functional Data Analysis: A Case Study on Regional Demographic and Economic Data.”</span> In <em>Information and Communication Technologies</em>, edited by Germania Rodriguez Morales, Efraín R. Fonseca C., Juan Pablo Salgado, Pablo Pérez-Gosende, Marcos Orellana Cordero, and Santiago Berrezueta, 163–76. Cham: Springer International Publishing.
 </div>
@@ -1521,9 +1492,6 @@ Ramsay, J. O., Spencer Graves, and Giles Hooker. 2022. <em>Fda: Functional Data 
 <div id="ref-ramsay_silverman:2005" class="csl-entry" role="listitem">
 Ramsay, J. O., and B. W. Silverman. 2005. <em>Functional Data Analysis</em>. 2nd ed. New York: Springer-Verlag.
 </div>
-<div id="ref-ray:2017" class="csl-entry" role="listitem">
-Ray, Kolyan. 2017. <span>“<span class="nocase">Adaptive Bernstein–von Mises theorems in Gaussian white noise</span>.”</span> <em>The Annals of Statistics</em> 45 (6): 2511–36. <a href="https://doi.org/10.1214/16-AOS1533">https://doi.org/10.1214/16-AOS1533</a>.
-</div>
 <div id="ref-reiss_et_al:2017" class="csl-entry" role="listitem">
 Reiss, Philip T., Jeff Goldsmith, Han Lin Shang, and R. Todd Ogden. 2017. <span>“Methods for Scalar-on-Function Regression.”</span> <em>International Statistical Review / Revue Internationale de Statistique</em> 85 (2): 228–49. <a href="http://www.jstor.org/stable/44840886">http://www.jstor.org/stable/44840886</a>.
 </div>
@@ -1535,9 +1503,6 @@ Tian, Renfang. 2020. <span>“On Functional Data Analysis: Methodologies and App
 </div>
 <div id="ref-wang_chiou_muller:2016" class="csl-entry" role="listitem">
 Wang, Jane-Ling, Jeng-Min Chiou, and Hans-Georg Müller. 2016. <span>“Functional Data Analysis.”</span> <em>Annual Review of Statistics and Its Application</em> 3 (1): 257–95. <a href="https://doi.org/10.1146/annurev-statistics-041715-033624">https://doi.org/10.1146/annurev-statistics-041715-033624</a>.
-</div>
-<div id="ref-watson:1964" class="csl-entry" role="listitem">
-Watson, G. S. 1964. <span>“Smooth Regression Analysis.”</span> <em>Sankhya</em> 26 (15): 175–84.
 </div>
 <div id="ref-fdapace" class="csl-entry" role="listitem">
 Zhou, Yidong, Satarupa Bhattacharjee, Cody Carroll, Yaqing Chen, Xiongtao Dai, Jianing Fan, Alvaro Gajardo, et al. 2022. <em>Fdapace: Functional Data Analysis and Empirical Dynamics</em>. <a href="https://CRAN.R-project.org/package=fdapace">https://CRAN.R-project.org/package=fdapace</a>.

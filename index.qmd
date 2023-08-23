@@ -117,6 +117,8 @@ One drawback with classical smoothing methods (kernels, splines, wavelets etc.) 
 
 # Outline of Talk
 
+::: {.nonincremental}
+
 - Modern data is often *functional* in nature (e.g., an electrocardiogram (ECG) and many other measures recorded by wearable devices) 
 
 - The analysis of functional data requires *nonparametric methods* 
@@ -128,6 +130,8 @@ One drawback with classical smoothing methods (kernels, splines, wavelets etc.) 
 - This allows us to conduct functional data analysis that is optimal (we do this in a statistical framework) 
 
 - We emphasize *online* computation (i.e., how to update when new functional data becomes available)
+
+:::
 
 ::: {.notes}
 - Present overview of slides
@@ -1323,6 +1327,8 @@ legend("topright",c("Reconstructed Estimator","Local Estimator","True Curve","Da
 
 # Online Recursive Updating
 
+<!--
+
 ## Online Recursive Updating
 
 -   As $N$ increases batch computation can become infeasible
@@ -1336,6 +1342,8 @@ legend("topright",c("Reconstructed Estimator","Local Estimator","True Curve","Da
 -   The challenge is a) to avoid batch computation when the number of curves gets unmanageably large, and b) to process online curves in real-time with negligible memory and computational overhead
 
 -   Though recursive updating will necessarily be sub-optimal, if done properly the efficiency loss will be negligible and can be controlled (batch computation on all curves would be optimal but infeasible)
+
+-->
 
 ## Online Recursive Updating of Local Hölder Exponent
 
@@ -1366,6 +1374,8 @@ legend("topright",c("Reconstructed Estimator","Local Estimator","True Curve","Da
 ## Online Recursive Updating Clip
 
 {{< video R_scripts_data/movie.mov width="640" height="640">}}
+
+<!--
 
 ## Recursive Updating: Finite-Sample Performance
 
@@ -1404,6 +1414,8 @@ knitr::kable(table.foo.200[,c(-2,-4)],
 ```
 
 :::
+
+-->
 
 # Summary and Appendices
 

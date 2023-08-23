@@ -14,7 +14,7 @@
 
   <meta name="author" content="Valentin Patilea^\dagger">
   <meta name="author" content="Jeffrey S. Racine^\ddagger">
-  <title>quarto-input26e5594f</title>
+  <title>quarto-input5648d3f4</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -422,14 +422,16 @@ Jeffrey S. Racine<span class="math inline">\(^\ddagger\)</span>
 <section>
 <section id="outline-of-talk" class="title-slide slide level1 center">
 <h1>Outline of Talk</h1>
+<div>
 <ul>
-<li class="fragment"><p>Modern data is often <em>functional</em> in nature (e.g., an electrocardiogram (ECG) and many other measures recorded by wearable devices)</p></li>
-<li class="fragment"><p>The analysis of functional data requires <em>nonparametric methods</em></p></li>
-<li class="fragment"><p>However, nonparametric methods rely on <em>smoothness assumptions</em> (i.e., require you to assume something we don’t know)</p></li>
-<li class="fragment"><p>We show how we can learn the degree of (non)smoothness in functional data settings and we separate this from <em>measurement noise</em> (this cannot be done with classical data)</p></li>
-<li class="fragment"><p>This allows us to conduct functional data analysis that is optimal (we do this in a statistical framework)</p></li>
-<li class="fragment"><p>We emphasize <em>online</em> computation (i.e., how to update when new functional data becomes available)</p></li>
+<li><p>Modern data is often <em>functional</em> in nature (e.g., an electrocardiogram (ECG) and many other measures recorded by wearable devices)</p></li>
+<li><p>The analysis of functional data requires <em>nonparametric methods</em></p></li>
+<li><p>However, nonparametric methods rely on <em>smoothness assumptions</em> (i.e., require you to assume something we don’t know)</p></li>
+<li><p>We show how we can learn the degree of (non)smoothness in functional data settings and we separate this from <em>measurement noise</em> (this cannot be done with classical data)</p></li>
+<li><p>This allows us to conduct functional data analysis that is optimal (we do this in a statistical framework)</p></li>
+<li><p>We emphasize <em>online</em> computation (i.e., how to update when new functional data becomes available)</p></li>
 </ul>
+</div>
 <aside class="notes">
 <ul>
 <li><p>Present overview of slides</p></li>
@@ -1100,18 +1102,23 @@ h^*_{t,\Gamma} &amp;=  \left[ \frac{\sigma_t^2 \int K^2(u)du }{4H_t L_t^2\times 
 <section>
 <section id="online-recursive-updating" class="title-slide slide level1 center">
 <h1>Online Recursive Updating</h1>
+<!--
 
-</section>
-<section id="online-recursive-updating-1" class="slide level2 center">
-<h2>Online Recursive Updating</h2>
-<ul>
-<li class="fragment"><p>As <span class="math inline">\(N\)</span> increases batch computation can become infeasible</p></li>
-<li class="fragment"><p>Furthermore, new online curves may arrive in real-time</p></li>
-<li class="fragment"><p>We may need to update our batch estimates in real-time, i.e., our estimates of <span class="math inline">\(H_t\)</span>, <span class="math inline">\(L_t\)</span>, <span class="math inline">\(h_{t,HL}\)</span>, <span class="math inline">\(h_{t,\mu}\)</span>, <span class="math inline">\(h_{t,\Gamma}\)</span>, <span class="math inline">\(\mu(t)\)</span>, <span class="math inline">\(\sigma(t)\)</span>, <span class="math inline">\(f_T(t)\)</span>, and <span class="math inline">\(\Gamma(s,t)\)</span></p></li>
-<li class="fragment"><p>We shall rely on recursive methods, i.e., “stochastic approximation” algorithms, which date to <span class="citation" data-cites="robbins_munro:1951">Robbins and Monro (<a href="#/references-scrollable" role="doc-biblioref" onclick="">1951</a>)</span> and <span class="citation" data-cites="kiefer_wolfowitz:1952">Kiefer and Wolfowitz (<a href="#/references-scrollable" role="doc-biblioref" onclick="">1952</a>)</span></p></li>
-<li class="fragment"><p>The challenge is a) to avoid batch computation when the number of curves gets unmanageably large, and b) to process online curves in real-time with negligible memory and computational overhead</p></li>
-<li class="fragment"><p>Though recursive updating will necessarily be sub-optimal, if done properly the efficiency loss will be negligible and can be controlled (batch computation on all curves would be optimal but infeasible)</p></li>
-</ul>
+## Online Recursive Updating
+
+-   As $N$ increases batch computation can become infeasible
+
+-   Furthermore, new online curves may arrive in real-time
+
+-   We may need to update our batch estimates in real-time, i.e., our estimates of $H_t$, $L_t$, $h_{t,HL}$, $h_{t,\mu}$, $h_{t,\Gamma}$, $\mu(t)$, $\sigma(t)$, $f_T(t)$, and $\Gamma(s,t)$
+
+-   We shall rely on recursive methods, i.e., "stochastic approximation" algorithms, which date to @robbins_munro:1951 and @kiefer_wolfowitz:1952
+
+-   The challenge is a) to avoid batch computation when the number of curves gets unmanageably large, and b) to process online curves in real-time with negligible memory and computational overhead
+
+-   Though recursive updating will necessarily be sub-optimal, if done properly the efficiency loss will be negligible and can be controlled (batch computation on all curves would be optimal but infeasible)
+
+-->
 </section>
 <section id="online-recursive-updating-of-local-hölder-exponent" class="slide level2 center">
 <h2>Online Recursive Updating of Local Hölder Exponent</h2>
@@ -1139,129 +1146,51 @@ h^*_{t,\Gamma} &amp;=  \left[ \frac{\sigma_t^2 \int K^2(u)du }{4H_t L_t^2\times 
 <section id="online-recursive-updating-clip" class="slide level2 center">
 <h2>Online Recursive Updating Clip</h2>
 <video id="video_shortcode_videojs_video1" width="640" height="640" class="video-js vjs-default-skin " controls="" preload="auto" data-setup="{}" title=""><source src="R_scripts_data/movie.mov"></video>
-</section>
-<section id="recursive-updating-finite-sample-performance" class="slide level2 center">
-<h2>Recursive Updating: Finite-Sample Performance</h2>
-<div class="panel-tabset">
-<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Varying <span class="math inline">\(M\)</span>, <span class="math inline">\(N=16000\)</span></a></li><li><a href="#tabset-1-2">Varying <span class="math inline">\(N\)</span>, <span class="math inline">\(M=200\)</span></a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1">
-<p><a href="#/recursive-updating-finite-sample-performance">Table&nbsp;1</a> summarizes RMSE performance for 1,000 Monte Carlo replications from a multifractional Brownian motion with covariance <span class="math inline">\(\Gamma(s,t)\)</span> based on <span class="math inline">\(\tau=1\)</span>, <span class="math inline">\(L_t=1\)</span>, <span class="math inline">\(H_t\in[0.25,0.75]\)</span>, <span class="math inline">\(\sigma=0.25\)</span>, with <span class="math inline">\(\mu(t)=\sin(2\pi t)\)</span>, <span class="math inline">\(t\sim U[0,1]\)</span>, <em>independent design</em> with <span class="math inline">\(M_i=M\)</span>, <span class="math inline">\(N=16000\)</span> online curves, an initial batch of <span class="math inline">\(N=5\)</span> curves to “burn in” values for <span class="math inline">\(H_t\)</span> and <span class="math inline">\(L_t\)</span>, and a grid of 100 equidistant points for <span class="math inline">\(\mathcal T_0\in[0,1]\)</span></p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/revealjs/tbl-rmseMtable_6c7ba8bb157d0b30a558811d8a137706">
-<div class="cell-output-display">
-<div id="tbl-rmseMtable">
-<table>
-<caption>Table&nbsp;1: Mean RMSE after final recursion</caption>
-<colgroup>
-<col style="width: 4%">
-<col style="width: 22%">
-<col style="width: 15%">
-<col style="width: 18%">
-<col style="width: 16%">
-<col style="width: 21%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: center;"><span class="math inline">\(M\)</span></th>
-<th style="text-align: center;"><span class="math inline">\(\widehat h_{H_t,L_t}\)</span></th>
-<th style="text-align: center;"><span class="math inline">\(\widehat H_t\)</span></th>
-<th style="text-align: center;"><span class="math inline">\(\widehat X^{(i)}\)</span></th>
-<th style="text-align: center;"><span class="math inline">\(\widehat\mu(t)\)</span></th>
-<th style="text-align: center;"><span class="math inline">\(\widehat\Gamma(s,t)\)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">100</td>
-<td style="text-align: center;">0.0108</td>
-<td style="text-align: center;">0.1479</td>
-<td style="text-align: center;">0.1899</td>
-<td style="text-align: center;">0.0202</td>
-<td style="text-align: center;">0.0495</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">200</td>
-<td style="text-align: center;">0.0076</td>
-<td style="text-align: center;">0.1395</td>
-<td style="text-align: center;">0.1622</td>
-<td style="text-align: center;">0.0186</td>
-<td style="text-align: center;">0.0425</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">400</td>
-<td style="text-align: center;">0.0051</td>
-<td style="text-align: center;">0.1172</td>
-<td style="text-align: center;">0.1384</td>
-<td style="text-align: center;">0.0167</td>
-<td style="text-align: center;">0.0360</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">800</td>
-<td style="text-align: center;">0.0032</td>
-<td style="text-align: center;">0.0860</td>
-<td style="text-align: center;">0.1185</td>
-<td style="text-align: center;">0.0149</td>
-<td style="text-align: center;">0.0309</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-<div id="tabset-1-2">
-<p><a href="#/recursive-updating-finite-sample-performance">Table&nbsp;2</a> summarizes the finite sample RMSE performance of two <span class="math inline">\(\Gamma(s,t)\)</span> estimators that either a) discard degenerate points vertically (“skip”) or b) use the recovered curves based on the previous estimate of <span class="math inline">\(\Gamma(s,t)\)</span> (“lp”), as the number of online curves processed increases from <span class="math inline">\(N=1000,2000,...,16000\)</span>, <span class="math inline">\(M=200\)</span></p>
-<div class="cell" data-layout-align="center" data-hash="index_cache/revealjs/tbl-rmseM200Ntable_06b594c438b008704758bd3a1fd13590">
-<div class="cell-output-display">
-<div id="tbl-rmseM200Ntable">
-<table>
-<caption>Table&nbsp;2: Mean RMSE after final recursion</caption>
-<colgroup>
-<col style="width: 8%">
-<col style="width: 46%">
-<col style="width: 44%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: center;"><span class="math inline">\(N\)</span></th>
-<th style="text-align: center;"><span class="math inline">\(\widehat\Gamma(s,t)_{\text{skip}}\)</span></th>
-<th style="text-align: center;"><span class="math inline">\(\widehat\Gamma(s,t)_{\text{lp}}\)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">1000</td>
-<td style="text-align: center;">0.1006</td>
-<td style="text-align: center;">0.0596</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">2000</td>
-<td style="text-align: center;">0.0799</td>
-<td style="text-align: center;">0.0416</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">4000</td>
-<td style="text-align: center;">0.0642</td>
-<td style="text-align: center;">0.0297</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">8000</td>
-<td style="text-align: center;">0.0524</td>
-<td style="text-align: center;">0.0216</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">16000</td>
-<td style="text-align: center;">0.0425</td>
-<td style="text-align: center;">0.0152</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+
+<!--
+
+## Recursive Updating: Finite-Sample Performance
+
+::: {.panel-tabset}
+
+## Varying $M$, $N=16000$
+
+@tbl-rmseMtable summarizes RMSE performance for 1,000 Monte Carlo replications from a multifractional Brownian motion with covariance $\Gamma(s,t)$ based on $\tau=1$, $L_t=1$, $H_t\in[0.25,0.75]$, $\sigma=0.25$, with $\mu(t)=\sin(2\pi t)$, $t\sim U[0,1]$, *independent design* with $M_i=M$, $N=16000$ online curves, an initial batch of $N=5$ curves to "burn in" values for $H_t$ and $L_t$, and a grid of 100 equidistant points for $\mathcal T_0\in[0,1]$
+
+
+::: {#tbl-rmseMtable .cell layout-align="center" tbl-cap='Mean RMSE after final recursion' hash='index_cache/revealjs/tbl-rmseMtable_6c7ba8bb157d0b30a558811d8a137706'}
+::: {.cell-output-display}
+| $M$ | $\widehat h_{H_t,L_t}$ | $\widehat H_t$ | $\widehat X^{(i)}$ | $\widehat\mu(t)$ | $\widehat\Gamma(s,t)$ |
+|:---:|:----------------------:|:--------------:|:------------------:|:----------------:|:---------------------:|
+| 100 |         0.0108         |     0.1479     |       0.1899       |      0.0202      |        0.0495         |
+| 200 |         0.0076         |     0.1395     |       0.1622       |      0.0186      |        0.0425         |
+| 400 |         0.0051         |     0.1172     |       0.1384       |      0.0167      |        0.0360         |
+| 800 |         0.0032         |     0.0860     |       0.1185       |      0.0149      |        0.0309         |
+:::
+:::
+
+
+## Varying $N$, $M=200$
+
+@tbl-rmseM200Ntable summarizes the finite sample RMSE performance of two $\Gamma(s,t)$ estimators that either a) discard degenerate points vertically ("skip") or b) use the recovered curves based on the previous estimate of $\Gamma(s,t)$ ("lp"), as the number of online curves processed increases from $N=1000,2000,...,16000$, $M=200$
+
+
+::: {#tbl-rmseM200Ntable .cell layout-align="center" tbl-cap='Mean RMSE after final recursion' hash='index_cache/revealjs/tbl-rmseM200Ntable_06b594c438b008704758bd3a1fd13590'}
+::: {.cell-output-display}
+|  $N$  | $\widehat\Gamma(s,t)_{\text{skip}}$ | $\widehat\Gamma(s,t)_{\text{lp}}$ |
+|:-----:|:-----------------------------------:|:---------------------------------:|
+| 1000  |               0.1006                |              0.0596               |
+| 2000  |               0.0799                |              0.0416               |
+| 4000  |               0.0642                |              0.0297               |
+| 8000  |               0.0524                |              0.0216               |
+| 16000 |               0.0425                |              0.0152               |
+:::
+:::
+
+
+:::
+
+-->
 </section></section>
 <section>
 <section id="summary-and-appendices" class="title-slide slide level1 center">
@@ -1467,9 +1396,6 @@ Horowitz, Joel L., and Vladimir G. Spokoiny. 2001. <span>“An Adaptive, Rate-Op
 </div>
 <div id="ref-horvath_kokoszka:2012" class="csl-entry" role="listitem">
 Horváth, Lajos, and Piotr Kokoszka. 2012. <em>Inference for Functional Data with Applications</em>. Vol. 200. Springer Series in Statistics. https://doi.org/<a href="https://doi.org/10.1007/978-1-4614-3655-3">https://doi.org/10.1007/978-1-4614-3655-3</a>.
-</div>
-<div id="ref-kiefer_wolfowitz:1952" class="csl-entry" role="listitem">
-Kiefer, J., and J. Wolfowitz. 1952. <span>“<span class="nocase">Stochastic Estimation of the Maximum of a Regression Function</span>.”</span> <em>The Annals of Mathematical Statistics</em> 23 (3): 462–66. <a href="https://doi.org/10.1214/aoms/1177729392">https://doi.org/10.1214/aoms/1177729392</a>.
 </div>
 <div id="ref-kokoszka_reimherr:2017" class="csl-entry" role="listitem">
 Kokoszka, P., and M. Reimherr. 2017. 1st ed. Chapman; Hall/CRC. https://doi.org/<a href="https://doi.org/10.1201/9781315117416">https://doi.org/10.1201/9781315117416</a>.

@@ -1,6 +1,6 @@
 # Locally Adaptive Online Functional Data Analysis Slides
 
-(*Note - this talk is a condensed version of the full talk that can be found at* <https://jeffreyracine.github.io/laofda>, *whose repository can be found at*  <https://github.com/JeffreyRacine/Kruger>)
+(*Note - this talk is a condensed version of the full talk that can be found at* <https://jeffreyracine.github.io/laofda>, *whose repository can be found at*  <https://github.com/JeffreyRacine/laofda>)
 
 This repository contains presentation slides for a joint project with Valenti Patilea.
 

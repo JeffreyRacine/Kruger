@@ -14,7 +14,7 @@
 
   <meta name="author" content="Valentin Patilea^\dagger">
   <meta name="author" content="Jeffrey S. Racine^\ddagger">
-  <title>quarto-input870dd564</title>
+  <title>quarto-input75235fc1</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -1047,58 +1047,75 @@ h^*_{t,\Gamma} &amp;=  \left[ \frac{\sigma_t^2 \int K^2(u)du }{4H_t L_t^2\times 
 <section id="example-estimation-of-gammast-1" class="slide level2 center">
 <h2>Example: Estimation of <span class="math inline">\(\Gamma(s,t)\)</span></h2>
 
-<img data-src="index_files/figure-revealjs/fig-canweathergamma-1.png" width="960" class="r-stretch quarto-figure-center"><p class="caption">Figure&nbsp;16: Canadian Weather</p></section>
-<section id="example-estimation-of-gammast-2" class="slide level2 center">
-<h2>Example: Estimation of <span class="math inline">\(\Gamma(s,t)\)</span></h2>
+<!--
 
-<img data-src="index_files/figure-revealjs/fig-mfbmgamma-1.png" width="960" class="r-stretch quarto-figure-center"><p class="caption">Figure&nbsp;17: Multifractional Brownian Motion</p></section></section>
-<section>
-<section id="curve-recovery" class="title-slide slide level1 center">
-<h1>Curve Recovery</h1>
+## Example: Estimation of $\Gamma(s,t)$
 
-</section>
-<section id="curve-recovery-1" class="slide level2 center">
-<h2>Curve Recovery</h2>
-<ul>
-<li class="fragment"><p>Sometimes one needs to estimate a curve, e.g., a new online sample arrives and one is interested in estimating the (unknown) new online curve at some point <span class="math inline">\(t_0\in[0,1]\)</span></p></li>
-<li class="fragment"><p>We wish to build an estimator of <span class="math inline">\(X^{(i)}(t_0)\)</span> making use of information in the noisy measurements <span class="math inline">\((Y^{(i)}_m,T^{(i)}_m)\)</span> of <span class="math inline">\(X^{(i)}\)</span>, and can do so by exploiting information provided by the mean and covariance functions of the process <span class="math inline">\(X\)</span></p></li>
-<li class="fragment"><p>Recall that <span class="math inline">\(\mathcal{T}^{(i)}\)</span> represents the set of design points where the curve <span class="math inline">\(X^{(i)}\)</span> is measured with error (<span class="math inline">\(t_0\)</span> can be an element of <span class="math inline">\(\mathcal{T}^{(i)}\)</span>, or not)</p></li>
-<li class="fragment"><p>Let <span class="math inline">\(\mathbb{Y}^{(i)}=(\mathbb{Y}^{(i)}_1,\dots,\mathbb{Y}^{(i)}_{M_i})^T\)</span>, and <span class="math inline">\(\mathbb{X}^{(i)}=(\mathbb{X}^{(i)}(T^{(i)}_1),\dots,\mathbb{X}^{(i)}(T^{(i)}_{M_i}))^T\)</span></p></li>
-</ul>
-</section>
-<section id="curve-recovery-cont." class="slide level2 center">
-<h2>Curve Recovery Cont.</h2>
-<ul>
-<li class="fragment"><p>We use the following vectors and matrices determined by the mean and covariance structure of <span class="math inline">\(X\)</span> and the noise variance: <span class="math display">\[\begin{align*}
-\mu^{(i)}=\left(\mu(T^{(i)}_m)\right)_{1\le m\le M_i},&amp;\qquad
-\Gamma^{(i)}=\left(\Gamma(T^{(i)}_m,T^{(i)}_{m'})\right)_{1\le m,m'\le M_i},\\\text{and}\quad
-\Sigma^{(i)}&amp;=\text{diag}\left(\sigma^2(T^{(i)}_m)\right)_{1\le m\le M_i}
-\end{align*}\]</span></p></li>
-<li class="fragment"><p>The type of prediction we consider has the form (<span class="math inline">\(\widetilde X_{inf}^{(i)}(t_0)\)</span> is infeasible) <span class="math display">\[\begin{equation*}
-\widetilde X_{inf}^{(i)}(t_0)=\mu(t_0)+\beta_{t_0}^T\left\{\mathbb{Y}^{(i)}-\mu^{(i)}\right\}
-\end{equation*}\]</span></p></li>
-<li class="fragment"><p>Here, <span class="math inline">\(\beta_{t_0}\)</span> is theoretical quantity which depends on unknown quantities, but a feasible version can be readily constructed by noting that <span class="math display">\[\begin{equation*}
-\beta_{t_0}=\operatorname{Var}^{-1}_{M,T}\left(\mathbb{Y}^{(i)}\right)\operatorname{Cov}_{M,T}\left(\mathbb{Y}^{(i)},X^{(i)}(t_0)\right)
-\end{equation*}\]</span></p></li>
-</ul>
-</section>
-<section id="curve-recovery-cont.-1" class="slide level2 center">
-<h2>Curve Recovery Cont.</h2>
-<ul>
-<li class="fragment"><p>It can be shown that <span class="math display">\[\begin{equation*}
-\beta_{t_0}=\left(\Gamma^{(i)}+\Sigma^{(i)}\right)^{-1}\Gamma^{(i)}_{t_0}
-\end{equation*}\]</span></p></li>
-<li class="fragment"><p>Of course, this estimator is infeasible, but given <em>existing</em> estimates of <span class="math inline">\(h\)</span>, <span class="math inline">\(H\)</span>, <span class="math inline">\(L\)</span>, <span class="math inline">\(\mu\)</span>, <span class="math inline">\(\Gamma\)</span> and <span class="math inline">\(\sigma\)</span>, we have a feasible estimator given by <span class="math display">\[\begin{equation*}
-\widetilde X^{(i)}(t_0)=\widehat\mu(t_0)+\widehat\beta_{t_0}^T\left\{\mathbb{Y}^{(i)}-\widehat\mu^{(i)}\right\}\text{ where } \widehat\beta_{t_0}=\left(\widehat\Gamma^{(i)}+\widehat\Sigma^{(i)}\right)^{-1} \widehat\Gamma^{(i)}_{t_0}
-\end{equation*}\]</span></p></li>
-<li class="fragment"><p>We expect (and simulations underscore) that this estimator is capable of outperforming the individual <em>local</em> curve estimates used to construct <span class="math inline">\(H_t\)</span> and <span class="math inline">\(L_t\)</span> in some settings given a sufficient number of curves (i.e., the <span class="math inline">\(\widehat X^{(i)}(t)\)</span> considered previously)</p></li>
-<li class="fragment"><p>We also propose a “combined” estimator that is a <em>data-driven convex combination</em> of the reconstructed estimator <span class="math inline">\(\widetilde X^{(i)}(t_0)\)</span> and the individual curve estimator <span class="math inline">\(\widehat X^{(i)}(t_0)\)</span></p></li>
-</ul>
-</section>
-<section id="example-curve-recovery-versus-smooth-estimation" class="slide level2 center">
-<h2>Example: Curve Recovery Versus Smooth Estimation</h2>
 
-<img data-src="index_files/figure-revealjs/fig-Brownianrecon-1.png" width="960" class="r-stretch quarto-figure-center"><p class="caption">Figure&nbsp;18: MfBm Curve Reconstruction</p></section></section>
+::: {.cell layout-align="center" hash='index_cache/revealjs/fig-mfbmgamma_51441d0d53121f8912e5065615f258bf'}
+::: {.cell-output-display}
+![Multifractional Brownian Motion](index_files/figure-revealjs/fig-mfbmgamma-1.png){#fig-mfbmgamma fig-align='center' width=960}
+:::
+:::
+
+
+-->
+<!--
+
+# Curve Recovery
+
+## Curve Recovery
+
+-   Sometimes one needs to estimate a curve, e.g., a new online sample arrives and one is interested in estimating the (unknown) new online curve at some point $t_0\in[0,1]$
+
+-   We wish to build an estimator of $X^{(i)}(t_0)$ making use of information in the noisy measurements $(Y^{(i)}_m,T^{(i)}_m)$ of $X^{(i)}$, and can do so by exploiting information provided by the mean and covariance functions of the process $X$
+
+-   Recall that $\mathcal{T}^{(i)}$ represents the set of design points where the curve $X^{(i)}$ is measured with error ($t_0$ can be an element of $\mathcal{T}^{(i)}$, or not)
+
+-   Let $\mathbb{Y}^{(i)}=(\mathbb{Y}^{(i)}_1,\dots,\mathbb{Y}^{(i)}_{M_i})^T$, and $\mathbb{X}^{(i)}=(\mathbb{X}^{(i)}(T^{(i)}_1),\dots,\mathbb{X}^{(i)}(T^{(i)}_{M_i}))^T$
+
+## Curve Recovery Cont.
+
+-   We use the following vectors and matrices determined by the mean and covariance structure of $X$ and the noise variance: \begin{align*}
+    \mu^{(i)}=\left(\mu(T^{(i)}_m)\right)_{1\le m\le M_i},&\qquad
+    \Gamma^{(i)}=\left(\Gamma(T^{(i)}_m,T^{(i)}_{m'})\right)_{1\le m,m'\le M_i},\\\text{and}\quad
+    \Sigma^{(i)}&=\text{diag}\left(\sigma^2(T^{(i)}_m)\right)_{1\le m\le M_i}
+    \end{align*}
+
+-   The type of prediction we consider has the form ($\widetilde X_{inf}^{(i)}(t_0)$ is infeasible) \begin{equation*}
+    \widetilde X_{inf}^{(i)}(t_0)=\mu(t_0)+\beta_{t_0}^T\left\{\mathbb{Y}^{(i)}-\mu^{(i)}\right\}
+    \end{equation*}
+
+-   Here, $\beta_{t_0}$ is theoretical quantity which depends on unknown quantities, but a feasible version can be readily constructed by noting that \begin{equation*}
+    \beta_{t_0}=\operatorname{Var}^{-1}_{M,T}\left(\mathbb{Y}^{(i)}\right)\operatorname{Cov}_{M,T}\left(\mathbb{Y}^{(i)},X^{(i)}(t_0)\right)
+    \end{equation*}
+
+## Curve Recovery Cont.
+
+-   It can be shown that \begin{equation*}
+    \beta_{t_0}=\left(\Gamma^{(i)}+\Sigma^{(i)}\right)^{-1}\Gamma^{(i)}_{t_0}
+    \end{equation*}
+
+-   Of course, this estimator is infeasible, but given *existing* estimates of $h$, $H$, $L$, $\mu$, $\Gamma$ and $\sigma$, we have a feasible estimator given by \begin{equation*}
+    \widetilde X^{(i)}(t_0)=\widehat\mu(t_0)+\widehat\beta_{t_0}^T\left\{\mathbb{Y}^{(i)}-\widehat\mu^{(i)}\right\}\text{ where } \widehat\beta_{t_0}=\left(\widehat\Gamma^{(i)}+\widehat\Sigma^{(i)}\right)^{-1} \widehat\Gamma^{(i)}_{t_0}
+    \end{equation*}
+
+-   We expect (and simulations underscore) that this estimator is capable of outperforming the individual *local* curve estimates used to construct $H_t$ and $L_t$ in some settings given a sufficient number of curves (i.e., the $\widehat X^{(i)}(t)$ considered previously)
+
+-   We also propose a "combined" estimator that is a *data-driven convex combination* of the reconstructed estimator $\widetilde X^{(i)}(t_0)$ and the individual curve estimator $\widehat X^{(i)}(t_0)$
+
+## Example: Curve Recovery Versus Smooth Estimation
+
+
+::: {.cell layout-align="center" hash='index_cache/revealjs/fig-Brownianrecon_900b4975bef217e25df08a5abe6867c7'}
+::: {.cell-output-display}
+![MfBm Curve Reconstruction](index_files/figure-revealjs/fig-Brownianrecon-1.png){#fig-Brownianrecon fig-align='center' width=960}
+:::
+:::
+
+
+-->
+<img data-src="index_files/figure-revealjs/fig-canweathergamma-1.png" width="960" class="r-stretch quarto-figure-center"><p class="caption">Figure&nbsp;16: Canadian Weather</p></section></section>
 <section>
 <section id="online-recursive-updating" class="title-slide slide level1 center">
 <h1>Online Recursive Updating</h1>

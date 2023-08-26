@@ -1252,6 +1252,8 @@ GA::persp3D(fda.la.canWeather$t.grid[order(fda.la.canWeather$t.grid)],
             zlab="Estimated Gamma")
 ```
 
+<!--
+
 ## Example: Estimation of $\Gamma(s,t)$
 
 ```{r mfbmgamma}
@@ -1264,6 +1266,10 @@ GA::persp3D(fda.la.Brownian$t.grid[order(fda.la.Brownian$t.grid)],
             ylab="t",
             zlab="Estimated Gamma")
 ```
+
+-->
+
+<!--
 
 # Curve Recovery
 
@@ -1324,6 +1330,8 @@ lines(curves.Brownian[[100]]$grid_true,curves.Brownian[[100]]$x_true,lty=1,col="
 points(curves.Brownian[[100]]$t, curves.Brownian[[100]]$x,pch=19)
 legend("topright",c("Reconstructed Estimator","Local Estimator","True Curve","Data"),lty=c(1,2,1,NA),lwd=c(1,1,1.5,NA),col=c(3,2,"grey",1),pch=c(NA,NA,NA,19),bty="n")
 ```
+
+-->
 
 # Online Recursive Updating
 

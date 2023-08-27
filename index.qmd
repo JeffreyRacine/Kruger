@@ -1071,6 +1071,8 @@ matplot(rbind(fda.la.Brownian$h.HL.starting,fda.la.Brownian$h.HL.updated.mat),
         panel.first=grid(lty=1))
 ```
 
+<!--
+
 ## MfBm Example (independent design)
 
 ```{r mfbmiterH}
@@ -1084,6 +1086,8 @@ matplot(fda.la.Brownian$H.updated.mat,
         type="l",
         panel.first=grid(lty=1))
 ```
+
+-->
 
 ## MfBm Example (independent design)
 
